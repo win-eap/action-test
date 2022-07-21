@@ -9,3 +9,11 @@ Welcome to My Home Page
 - With timeago filter - {{ date | timeago }}
 
 Some extra text to trigger a build.
+
+List: 
+
+<ul>
+{% for member in site.data.list %}
+<li>{{ member }}</li>
+{% endfor %}
+</ul>
