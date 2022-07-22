@@ -19,7 +19,10 @@ jobs:
       - uses: JamesIves/fetch-api-data-action@v2 # https://github.com/marketplace/actions/fetch-api-data
         with:
           endpoint: https://www.wallandbinkley.com/things.json
-          save-location: ./_data/things.json
+          save-location: ./_data
+          save-name: things
+          set-output: false        # do not save as environment variable
+          debug: true
       # Use GitHub Deploy Action to build and deploy to Github
       - uses: jeffreytse/jekyll-deploy-action@v0.4.0
         with:
