@@ -16,13 +16,22 @@ jobs:
           key: ${{ runner.os }}-gems-${{ hashFiles('**/Gemfile') }}
           restore-keys: |
             ${{ runner.os }}-gems-
-      - uses: JamesIves/fetch-api-data-action@v2 # https://github.com/marketplace/actions/fetch-api-data
+      - id: 'get_worksheet'
+        uses: jroehl/gsheet.action@v1.0.0 # you can specify '@release' to always have the latest changes
         with:
-          endpoint: https://www.wallandbinkley.com/things.json
-          save-location: ./_data
-          save-name: things
-          set-output: false        # do not save as environment variable
-          debug: true
+          spreadsheetId: ${{ secrets.SHEET_ID }}
+          commands: | # list of commands, specified as a valid JSON string
+            [
+              { "command": "getData", "args": { "range": "'Sheet1'!A1:B3" } }
+            ]
+        env:
+          GSHEET_CLIENT_EMAIL: ${{ secrets.GSHEET_CLIENT_EMAIL }}
+          GSHEET_PRIVATE_KEY: ${{ secrets.GSHEET_PRIVATE_KEY }}
+      - name: dump results
+        env:
+          #  the output of the action can be found in ${{ steps.get_worksheet.outputs.results }}
+          RESULTS: ${{ steps.get_worksheet.outputs.results }}
+        run: echo "$RESULTS" | jq          
       # Use GitHub Deploy Action to build and deploy to Github
       - uses: jeffreytse/jekyll-deploy-action@v0.4.0
         with:
