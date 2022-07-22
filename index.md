@@ -17,3 +17,11 @@ List:
 <li>{{ member }}</li>
 {% endfor %}
 </ul>
+
+Things: 
+
+<ul>
+{% for member in site.data.thing %}
+<li>{{ member }}</li>
+{% endfor %}
+</ul>
