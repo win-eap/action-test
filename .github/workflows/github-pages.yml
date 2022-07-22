@@ -16,11 +16,11 @@ jobs:
           key: ${{ runner.os }}-gems-${{ hashFiles('**/Gemfile') }}
           restore-keys: |
             ${{ runner.os }}-gems-
-      - uses: gautemo/fetch-api-data-action@1.0.2
+      - uses: JamesIves/fetch-api-data-action@v2 # https://github.com/marketplace/actions/fetch-api-data
         with:
-          url: 'https://www.wallandbinkley.com/things.json'
-          file: './things.json'
- # Use GitHub Deploy Action to build and deploy to Github
+          endpoint: https://www.wallandbinkley.com/things.json
+          save-location: ./things.json
+      # Use GitHub Deploy Action to build and deploy to Github
       - uses: jeffreytse/jekyll-deploy-action@v0.4.0
         with:
           provider: 'github'
