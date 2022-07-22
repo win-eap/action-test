@@ -21,7 +21,9 @@ List:
 Things: 
 
 <ul>
-{% for member in site.data.thing %}
+{% for member in site.data.things %}
 <li>{{ member }}</li>
 {% endfor %}
 </ul>
+
+[Things json](things.json)

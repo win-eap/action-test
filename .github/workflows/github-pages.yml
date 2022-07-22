@@ -18,8 +18,8 @@ jobs:
             ${{ runner.os }}-gems-
       - uses: gautemo/fetch-api-data-action@1.0.2
         with:
-          url: 'https://www.wallandbinkley.com/thing.json'
-          file: '_data/thing.json'
+          url: 'https://www.wallandbinkley.com/things.json'
+          file: './things.json'
  # Use GitHub Deploy Action to build and deploy to Github
       - uses: jeffreytse/jekyll-deploy-action@v0.4.0
         with:
