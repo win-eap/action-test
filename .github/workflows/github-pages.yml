@@ -31,7 +31,10 @@ jobs:
         env:
           #  the output of the action can be found in ${{ steps.get_worksheet.outputs.results }}
           RESULTS: ${{ steps.get_worksheet.outputs.results }}
-        run: echo "$RESULTS" | jq          
+        run: |
+          dir
+          echo "$RESULTS" > things.json
+          cat things.json
       # Use GitHub Deploy Action to build and deploy to Github
       - uses: jeffreytse/jekyll-deploy-action@v0.4.0
         with:
