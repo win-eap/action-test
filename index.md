@@ -21,8 +21,8 @@ List:
 Things: 
 
 <ul>
-{% for member in site.data.things %}
-<li>{{ member }}</li>
+{% for note in site.data.things.results[0].result.rawData.formatted %}
+<li>{{ note.id }}: {{ note.note }}</li>
 {% endfor %}
 </ul>
 
