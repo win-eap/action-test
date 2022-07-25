@@ -26,7 +26,7 @@ Form Data:
     <th>Choose an option</th>
   <tr>
 
-{% for sheet in site.data.form_data %}
+{% for sheet in site.data.form_data.results %}
   {% for entry in sheet.result.rawData %}
     <tr>
       <td>{{ entry[1] }}</td>
