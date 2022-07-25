@@ -18,14 +18,21 @@ List:
 {% endfor %}
 </ul>
 
-Things: 
+Form Data: 
 
-<ul>
-{% for sheet in site.data.things %}
-{% for note in sheet.result.formatted %}
-<li>{{ note.id }}: {{ note.note }}</li>
+<table>
+  <tr>
+    <th>Enter some words</th>
+    <th>Choose an option</th>
+  <tr>
+{% for sheet in site.data.form_data %}
+  {% for entry in sheet.result.formatted %}
+  <tr>
+    <td>{{ entry['Enter some words'] }}</td>
+    <td>{{ entry['Choose an option'] }}</td>
+  </tr>
+  {% endfor %}
 {% endfor %}
-{% endfor %}
-</ul>
+</taable>
 
 [Things json](things.json)

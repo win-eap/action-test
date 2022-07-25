@@ -33,9 +33,9 @@ jobs:
           RESULTS: ${{ steps.get_worksheet.outputs.results }}
         run: |
           dir
-          echo "$RESULTS" > things.json
-          cp things.json _data/
-          cat things.json
+          echo "$RESULTS" > form_data.json
+          cp form_data.json _data/
+          cat form_data.json
           dir
       # Use GitHub Deploy Action to build and deploy to Github
       - uses: jeffreytse/jekyll-deploy-action@v0.4.0
