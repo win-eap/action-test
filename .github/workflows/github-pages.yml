@@ -19,7 +19,7 @@ jobs:
       - id: 'get_worksheet'
         uses: jroehl/gsheet.action@v1.0.0 # you can specify '@release' to always have the latest changes
         with:
-          spreadsheetId: ${{ secrets.SHEET_ID }}
+          spreadsheetId: ${{ secrets.GSHEET_ID }}
           commands: | # list of commands, specified as a valid JSON string
             [
               { "command": "getData", "args": { "minRow": 1, "maxRow": "1000", "hasHeaderRow": true, "worksheetTitle": "Sheet1"  } }
