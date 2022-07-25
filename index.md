@@ -24,7 +24,7 @@ Form Data:
   <tr>
     <th>Enter some words</th>
     <th>Choose an option</th>
-  <tr>
+  </tr>
 {% for sheet in site.data.form_data.results %}
   {% for entry in sheet.result.rawData %}
     <tr>
@@ -32,6 +32,7 @@ Form Data:
       <td>{{ entry[2] }}</td>
     </tr>
   {% endfor %}
-{% endfor %}</table>
+{% endfor %}
+</table>
 
 <a href="form_data.json">form data</a>
