@@ -26,13 +26,13 @@ Form Data:
     <th>Choose an option</th>
   <tr>
 {% for sheet in site.data.form_data %}
-  {% for entry in sheet.result.formatted %}
-  <tr>
-    <td>{{ entry['Enter some words'] }}</td>
-    <td>{{ entry['Choose an option'] }}</td>
-  </tr>
+  {% for entry in sheet.result.rawData %}
+    <tr>
+      <td>{{ entry.1 }}</td>
+      <td>{{ entry.2 }}</td>
+    </tr>
   {% endfor %}
 {% endfor %}
-</taable>
+</table>
 
-[Things json](things.json)
+[form_data json](form_data.json)
