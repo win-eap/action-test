@@ -25,14 +25,16 @@ Form Data:
     <th>Enter some words</th>
     <th>Choose an option</th>
   <tr>
+
 {% for sheet in site.data.form_data %}
   {% for entry in sheet.result.rawData %}
     <tr>
-      <td>{{ entry.1 }}</td>
-      <td>{{ entry.2 }}</td>
+      <td>{{ entry[1] }}</td>
+      <td>{{ entry[2] }}</td>
     </tr>
   {% endfor %}
 {% endfor %}
+
 </table>
 
 [form_data json](form_data.json)
