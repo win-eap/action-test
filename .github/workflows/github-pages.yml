@@ -6,6 +6,13 @@ on:
 #      - main # or master before October 2020
   workflow_dispatch
 
+# cancel any workflows that are already running. This ensures
+# that the latest-triggered of any competing workflow runs is 
+# the one that will finish.
+concurrency:
+  group: win-eap-pages
+  cancel-in-progress: true
+
 jobs:
   github-pages:
     runs-on: ubuntu-latest
